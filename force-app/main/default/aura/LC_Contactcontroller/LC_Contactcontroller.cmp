@@ -1,0 +1,55 @@
+<aura:component controller="contactcontroller">
+
+<aura:attribute name="conlist" type="list"/>
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+
+<tr >
+
+<td>
+
+LastName
+
+</td>
+
+<td>
+
+Email
+
+</td>
+
+<td>Phone</td>
+
+</tr>
+
+<aura:iteration items="{!v.conlist}" var="con">
+
+<tr>
+
+<td>
+
+{!con.LastName}
+
+</td>
+
+<td>
+
+{!con.Email}
+
+</td>
+
+<td >
+
+{!con.Phone}
+
+</td>
+
+</tr>
+
+</aura:iteration>
+
+</table>
+
+</aura:component>

@@ -1,0 +1,67 @@
+<aura:component implements="flexipage:availableForAllPageTypes" 
+                controller="dynamicRecordRowsCreationclass" access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="listOfAccounts" type="List" default="[]"/>
+
+    <div class="slds-card" style="font-family: 'Open Sans', sans-serif">
+
+        <!-- Header -->
+        <header class="slds-card__header slds-media slds-media_center">
+            <div class="slds-media__figure">
+                <lightning:icon iconName="standard:account" size="small"/>
+            </div>
+            <div class="slds-media__body slds-card__header-title slds-text-title_bold" style="font-size: 14px">
+                Account Creation
+            </div>
+        </header>
+
+        <!-- Table -->
+        <table class="slds-table slds-table_bordered slds-no-row-hover slds-table_cell-buffer" role="grid">
+            <thead>
+            <tr>
+                <th scope="col" height="22" style="width: 3rem">Nr.</th>
+                <th scope="col" height="22">Name</th>
+                <th scope="col" height="22">Website</th>
+                <th scope="col" height="22">Phone</th>
+                <th scope="col" height="22" style="width: 3rem"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <aura:iteration items="{!v.listOfAccounts}" var="rec">
+                <tr class="slds-hint-parent">
+                    <td style="font-weight: bold">
+                        <lightning:formattedNumber value="{!rec.index}"/>.
+                    </td>
+
+                    <td>
+                        <lightning:input type="text" variant="label-hidden" label="" name="Name" value="{!rec.Name}"/>
+                    </td>
+
+                    <td>
+                        <lightning:input type="text" variant="label-hidden" label="" name="Website" value="{!rec.Website}"/>
+                    </td>
+
+                    <td>
+                        <lightning:input type="text" variant="label-hidden" label="" name="Phone" value="{!rec.Phone}"/>
+                    </td>
+
+                    <td>
+                        <lightning:buttonIcon iconName="utility:delete" alternativeText="Remove" title="Remove" name="{!rec.index}" onclick="{!c.removeRow}"/>
+                    </td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+        </table>
+        <div class="slds-p-left_small slds-p-vertical_small">
+            <lightning:button variant="destructive" label="delete all rows" title="delete all rows" iconName="utility:recycle_bin_full" onclick="{!c.removeAllRows}"/>
+            <lightning:button variant="neutral" label="add additional row" title="add additional row" iconName="utility:add" onclick="{!c.addNewRow}"/>
+        </div>
+
+        <!-- Footer -->
+        <footer class="slds-modal__footer" style="padding: 0.50rem 1rem;">
+            <lightning:button variant="brand" label="Create Accounts" title="Create Accounts" iconName="utility:save" onclick="{!c.createAccounts}"/>
+        </footer>
+    </div>
+
+</aura:component>

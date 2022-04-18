@@ -1,0 +1,22 @@
+<aura:component implements="flexipage:availableForAllpageTypes" access="global" >
+
+    <aura:attribute name="eligibleornot" type="boolean" default="true" />
+	 
+	<ui:inputtext label="First Name" aura:id="Fname" placeholder="First Name" />
+	<ui:inputtext label="Last Name" aura:id="Lname" placeholder="Last Name" />
+	<ui:inputtext label="Your Age" aura:id="Age" placeholder="Age" />
+    <ui:button aura:id="ButtonForAction" label="Check Eligibility" press="{!c.geteligibility}" />
+    
+	<aura:if isTrue="{!v.eligibleornot}">
+	<!-- Codewhich will work when if condition is true -->
+	  Congrats! You Can VOTE
+	<ui:button label="Give Vote"/>
+	
+	<!-- Codewhich will work when if condition is false -->
+    <aura:set attribute="else">
+	  Sorry!You Can Not Vote
+	<ui:button label="Cancel Vote"/>
+	</aura:set>
+    
+</aura:if>
+</aura:component>

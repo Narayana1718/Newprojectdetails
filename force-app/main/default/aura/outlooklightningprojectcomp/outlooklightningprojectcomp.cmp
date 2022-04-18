@@ -1,0 +1,7 @@
+<aura:component >
+	<ui:inputtext label="First Name" aura:id="FirstName" placeholder="First Name" />
+	<ui:inputtext label="Last Name" aura:id="LastName" placeholder="Last Name" />
+    <ui:button aura:id="ButtonForAction" label="Submit" press="{!c.getinfo}" />
+    <ui:outputtext aura:id="NameToDisplay" value="" />
+    
+</aura:component>

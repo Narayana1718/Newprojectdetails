@@ -1,0 +1,47 @@
+<aura:component controller="Dynamic_search">
+
+<aura:attribute name="accName" type="String"/>
+
+<aura:attribute name="acclist" type="list"/>
+
+<aura:attribute name="isDisplay" type="boolean" default="false"/>
+
+<lightning:input type="text" label="AccountName" value="{!v.accName}"
+
+onchange="{!c.handleSearch}" style="width:20%;"/>
+
+Records size:{!v.acclist.length}
+
+<aura:if isTrue="{!v.isDisplay}">
+
+<aura:if isTrue="{!v.acclist.length!=0}">
+
+<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+
+<tr>
+
+<td>Name</td>
+
+</tr>
+
+<aura:iteration items="{!v.acclist}" var="acc">
+
+<tr>
+
+<td>
+
+{!acc.Name}
+
+</td>
+
+</tr>
+
+</aura:iteration>
+
+</table>
+
+</aura:if>
+
+</aura:if>
+
+</aura:component>

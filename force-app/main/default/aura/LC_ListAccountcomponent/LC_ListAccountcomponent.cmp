@@ -1,0 +1,25 @@
+<aura:component controller="ListAccount">
+    
+    <aura:attribute type="Account[]" name="acctList"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.fetchAccounts}"/>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Account Name</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+         <aura:iteration items="{!v.acctList}" var="a">
+                <tr>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="">{!a.Name}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

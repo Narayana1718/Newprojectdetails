@@ -1,0 +1,15 @@
+<apex:page StandardController="Account">
+  <apex:form >
+    <apex:pageBlock title="My Content">
+      <Apex:pageBlockButtons >
+        <apex:commandButton action="{Save}" value="Save me"/>
+      </Apex:pageBlockButtons>
+      <apex:pageBlockSection title="My Content Section" columns="2">
+        <apex:inputField value="{!Account.fax}"/>
+        <apex:inputField value="{!Account.phone}"/>
+        <apex:inputField value="{!Account.accountnumber}"/>
+        <apex:inputField value="{!Account.industry}"/>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
