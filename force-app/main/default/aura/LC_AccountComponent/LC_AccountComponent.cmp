@@ -13,6 +13,7 @@
 'onsave' attribute will executed when user clicks on save button -->
     <lightning:card title="Account Editable Datatable">
         <lightning:datatable
+        
                              aura:id="accountDataTable"
                              columns="{! v.columns }"
                              data="{! v.data }"
